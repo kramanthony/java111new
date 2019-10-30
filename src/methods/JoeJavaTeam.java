@@ -56,51 +56,56 @@ public class JoeJavaTeam {
         switch(coopAnswer){
             case 0:
                 totalScore = totalScore - 4;
-                System.out.println("Score: " + totalScore);
                 break;
             case 1:
                 totalScore = totalScore - 3;
-                System.out.println("Score: " + totalScore);
                 break;
             case 2:
                 totalScore = totalScore - 2;
-                System.out.println("Score: " + totalScore);
                 break;
             case 3:
                 totalScore = totalScore - 1;
-                System.out.println("Score: " + totalScore);
                 break;
             case 4:
                 totalScore = totalScore - 0;
-                System.out.println("Score: " + totalScore);
                 break;
             case 5:
                 totalScore = totalScore + 1;
-                System.out.println("Score: " + totalScore);
                 break;
             case 6:
                 totalScore = totalScore + 2;
-                System.out.println("Score: " + totalScore);
                 break;
             case 7:
                 totalScore = totalScore + 3;
-                System.out.println("Score: " + totalScore);
                 break;
             case 8:
                 totalScore = totalScore + 4;
-                System.out.println("Score: " + totalScore);
                 break;
             case 9:
                 totalScore = totalScore + 5;
-                System.out.println("Score: " + totalScore);
                 break;
         } // end switch
+        
+        System.out.println("");
         System.out.println("Question #4:");
         System.out.println("Do you like the idea of integrating ideas from what we've learned in class into a bunch of projects?");
         String integrateIdea = userInput.nextLine();
+        System.out.println("");
+        
         if(integrateIdea.equals("y")) {
             totalScore = totalScore + 1;
             
+        } // end if statement
+        System.out.println("SURVEY COMPLETED");
+        System.out.println("");
+        System.out.println("Score: " + totalScore);
+        System.out.println("");
+        
+        if(totalScore >= 5) {
+            System.out.println("Hey! We'd like you to join the JoeJava Team, you'd be a great fit!");
+        } // close if
+        if(totalScore <= 4) {
+            System.out.println("Hey! thank you for completing our survey, keep on coding!");
         }
         
     } // close main
