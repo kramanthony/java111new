@@ -18,7 +18,7 @@ package methods;
 import java.util.Scanner;
 
 /**
- * Variable scoope practice exercise loosely drawn from the film Inception
+ * Variable scope practice exercise loosely drawn from the film Inception
  * @author delores
  */
 public class ScopePractice {
