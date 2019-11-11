@@ -1,5 +1,6 @@
 package methods;
 import java.util.Scanner;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,9 +14,9 @@ import java.util.Scanner;
  */
 public class rollercoasterMidTerm {
     
-    static int coinStart = 50;
-    int min = 0;
-    int max = 150;
+    static int coinStart = 81;
+    static final int min = 0;
+    static final int max = 150;
     
     public static void main(String[] args) {
         System.out.println("Welcome to the mystical shop of math, where all cry!");
@@ -58,44 +59,69 @@ public class rollercoasterMidTerm {
         }else{
             if(coinStart < 50) {
                 System.out.println("Sorry, you don't have enough money to purchase thiszzzz");
-        }else{
-            if (shopAnswer == 2 && coinStart >= 200) {
-                coinStart = coinStart - 200;
-                hasSubtraction = true;
-                System.out.println("You have unlocked the Subtraction problems! Balance: " + coinStart);
             }else{
-                if(coinStart < 200) {
-                    System.out.println("Sorry, you don't have enough money to purchase this!");
-                }else{ // close if for buying subtraction problems
-                    if(shopAnswer == 3 && coinStart >= 500) {
-                        coinStart = coinStart - 500;
-                        hasMultiplication = true;
-                        System.out.println("You have unlocked the Multiplication problems! Balance: " + coinStart);
-                    }else{
-                        if(coinStart < 500) {
-                        System.out.println("Sorry you don't have enough money to purchase this!");
+                if (shopAnswer == 2 && coinStart >= 200) {
+                    coinStart = coinStart - 200;
+                    hasSubtraction = true;
+                    System.out.println("You have unlocked the Subtraction problems! Balance: " + coinStart);
+                }else{
+                    if(coinStart < 200) {
+                        System.out.println("Sorry, you don't have enough money to purchase this!");
+                    }else{ // close if for buying subtraction problems
+                        if(shopAnswer == 3 && coinStart >= 500) {
+                            coinStart = coinStart - 500;
+                            hasMultiplication = true;
+                            System.out.println("You have unlocked the Multiplication problems! Balance: " + coinStart);
                         }else{
-                            if(shopAnswer == 4 && coinStart >= 1000) {
-                                coinStart = coinStart - 1000;
-                                hasDivision = true;
-                                System.out.println("You have unlocked the Division problems! Balance: " + coinStart);
+                            if(coinStart < 500) {
+                            System.out.println("Sorry you don't have enough money to purchase this!");
                             }else{
-                                if(coinStart < 1000) {
-                                    System.out.println("Sorry, you don't have enough money to purchase this!");
-                                }
+                                if(shopAnswer == 4 && coinStart >= 1000) {
+                                    coinStart = coinStart - 1000;
+                                    hasDivision = true;
+                                    System.out.println("You have unlocked the Division problems! Balance: " + coinStart);
+                                }else{
+                                    if(coinStart < 1000) {
+                                        System.out.println("Sorry, you don't have enough money to purchase this!");
                                 }else{ // close if for buying division problems
-                                    if(shopAnswer == 5 && coinStart >= 10000) {
-                                        hasDolphin = true;
-                                        System.out.println("You have unlocked the Mystical Dolphin! Balance: " + coinStart);
-                                    }else{
-                                        if(coinStart < 10000) {
-                                            System.out.println("Sorry, you don't have enough money to purchase this!");
-                                        } // close if for buying mystical dolphin
+                                if(shopAnswer == 5 && coinStart >= 10000) {
+                                            hasDolphin = true;
+                                            System.out.println("You have unlocked the Mystical Dolphin! Balance: " + coinStart);
+                                        }else{
+                                            if(coinStart < 10000) {
+                                                System.out.println("Sorry, you don't have enough money to purchase this!");
+                                            } // close if for buying mystical dolphin
+                                    }
+                                    }
+                            }
+                        }
+                    }
+                }
+                }
+                }
+        }// close else
+        } 
         
-        } // close else
-        
-    } // close shop
+     // close shop
     public static void doAddition() {
-        System.out.println(min " + " + max);
+        Random rdm = new Random();
+        int numberone = rdm.nextInt(max);
+        int numbertwo = rdm.nextInt(max);
+        int sum = numberone + numbertwo;
+        System.out.println(numberone + " + " + numbertwo);
+        int answer = grabInput();
+        if(answer == sum) {
+            coinStart += 13;
+            System.out.println("Correct!");
+        }else{
+            coinStart -= 13;
+            System.out.println("Incorrect!");
+        } // close else
+        System.out.println("Balance: " + coinStart);
     } // close doAddition
+    public static int grabInput() {
+        Scanner input = new Scanner(System.in);
+        int answer = input.nextInt();
+        return answer;
+    }
 } // close class
