@@ -14,6 +14,8 @@ import java.util.Scanner;
 public class rollercoasterMidTerm {
     
     static int coinStart = 50;
+    int min = 0;
+    int max = 150;
     
     public static void main(String[] args) {
         System.out.println("Welcome to the mystical shop of math, where all cry!");
@@ -48,55 +50,52 @@ public class rollercoasterMidTerm {
         System.out.println("Press 5 to buy the Mystical Dolphin | Price: $10,000");
         shopAnswer = userInput.nextInt();
         
-        switch(shopAnswer){
-            case 1:
-                
-                System.out.println("You have just purchased addition problems! | Balance: " + coinStart);
-                break;
-            case 2:
-                shopAnswer = 2;
-                break;
-            case 3:
-                shopAnswer = 3;
-                break;
-            case 4:
-                shopAnswer = 4;
-                break;
-            case 5:
-                shopAnswer = 5;
-                break;
-        } // close switch
-        
         if(shopAnswer == 1 && coinStart >= 50) {
             coinStart = coinStart - 50;
             hasAddition = true;
-            System.out.println("You have unlocked the Addition problems!");
-        } // close if for buying addition problems
+            System.out.println("You have unlocked the Addition problems! Balance: " + coinStart);
+            doAddition();
+        }else{
+            if(coinStart < 50) {
+                System.out.println("Sorry, you don't have enough money to purchase thiszzzz");
+        }else{
+            if (shopAnswer == 2 && coinStart >= 200) {
+                coinStart = coinStart - 200;
+                hasSubtraction = true;
+                System.out.println("You have unlocked the Subtraction problems! Balance: " + coinStart);
+            }else{
+                if(coinStart < 200) {
+                    System.out.println("Sorry, you don't have enough money to purchase this!");
+                }else{ // close if for buying subtraction problems
+                    if(shopAnswer == 3 && coinStart >= 500) {
+                        coinStart = coinStart - 500;
+                        hasMultiplication = true;
+                        System.out.println("You have unlocked the Multiplication problems! Balance: " + coinStart);
+                    }else{
+                        if(coinStart < 500) {
+                        System.out.println("Sorry you don't have enough money to purchase this!");
+                        }else{
+                            if(shopAnswer == 4 && coinStart >= 1000) {
+                                coinStart = coinStart - 1000;
+                                hasDivision = true;
+                                System.out.println("You have unlocked the Division problems! Balance: " + coinStart);
+                            }else{
+                                if(coinStart < 1000) {
+                                    System.out.println("Sorry, you don't have enough money to purchase this!");
+                                }
+                                }else{ // close if for buying division problems
+                                    if(shopAnswer == 5 && coinStart >= 10000) {
+                                        hasDolphin = true;
+                                        System.out.println("You have unlocked the Mystical Dolphin! Balance: " + coinStart);
+                                    }else{
+                                        if(coinStart < 10000) {
+                                            System.out.println("Sorry, you don't have enough money to purchase this!");
+                                        } // close if for buying mystical dolphin
         
-        if(shopAnswer == 2 && coinStart >= 200) {
-            coinStart = coinStart - 200;
-            hasSubtraction = true;
-            System.out.println("You have unlocked the Subtraction problems!");
-        } // close if for buying subtraction problems
-        
-        if(shopAnswer == 3 && coinStart >= 500) {
-            coinStart = coinStart - 500;
-            hasMultiplication = true;
-            System.out.println("You have unlocked the Multiplication problems!");
-        } // close if for buying multiplication problems
-        
-        if(shopAnswer == 4 && coinStart >= 1000) {
-            coinStart = coinStart - 1000;
-            hasDivision = true;
-            System.out.println("You have unlocked the Division problems!");
-        } // close if for buying division problems
-        
-        if(shopAnswer == 5 && coinStart >= 10000) {
-            hasDolphin = true;
-            System.out.println("You have unlocked the Mystical Dolphin!");
-        } // close if for buying mystical dolphin
-        
+        } // close else
         
     } // close shop
-    
+    public static void doAddition() {
+        System.out.println(min " + " + max);
+    } // close doAddition
 } // close class
