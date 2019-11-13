@@ -14,9 +14,12 @@ import java.util.Random;
  */
 public class rollercoasterMidTerm {
     
-    static int coinStart = 81;
+    static int coinStart = 1000;
     static final int min = 0;
-    static final int max = 150;
+    static final int max = 30;
+    static final int minMult = 0;
+    static final int maxMult = 12;
+    static final double maxDiv = 20.0;    
     
     public static void main(String[] args) {
         System.out.println("Welcome to the mystical shop of math, where all cry!");
@@ -64,6 +67,7 @@ public class rollercoasterMidTerm {
                     coinStart = coinStart - 200;
                     hasSubtraction = true;
                     System.out.println("You have unlocked the Subtraction problems! Balance: " + coinStart);
+                    doSubtraction();
                 }else{
                     if(coinStart < 200) {
                         System.out.println("Sorry, you don't have enough money to purchase this!");
@@ -72,6 +76,7 @@ public class rollercoasterMidTerm {
                             coinStart = coinStart - 500;
                             hasMultiplication = true;
                             System.out.println("You have unlocked the Multiplication problems! Balance: " + coinStart);
+                            doMultiplication();
                         }else{
                             if(coinStart < 500) {
                             System.out.println("Sorry you don't have enough money to purchase this!");
@@ -80,6 +85,7 @@ public class rollercoasterMidTerm {
                                     coinStart = coinStart - 1000;
                                     hasDivision = true;
                                     System.out.println("You have unlocked the Division problems! Balance: " + coinStart);
+                                    doDivision();
                                 }else{
                                     if(coinStart < 1000) {
                                         System.out.println("Sorry, you don't have enough money to purchase this!");
@@ -105,20 +111,132 @@ public class rollercoasterMidTerm {
      // close shop
     public static void doAddition() {
         Random rdm = new Random();
-        int numberone = rdm.nextInt(max);
-        int numbertwo = rdm.nextInt(max);
-        int sum = numberone + numbertwo;
-        System.out.println(numberone + " + " + numbertwo);
-        int answer = grabInput();
-        if(answer == sum) {
-            coinStart += 13;
-            System.out.println("Correct!");
-        }else{
-            coinStart -= 13;
-            System.out.println("Incorrect!");
-        } // close else
-        System.out.println("Balance: " + coinStart);
-    } // close doAddition
+        int startCounter = 0;
+        int finCounter = 25;
+
+        
+        while(startCounter <= finCounter){
+            int numberone = rdm.nextInt(max);
+            int numbertwo = rdm.nextInt(max);
+            int sum = numberone + numbertwo;
+            System.out.println(numberone + " + " + numbertwo);
+            int answer = grabInput();
+            if(answer == sum) {
+                coinStart += 13;
+                System.out.println("Correct!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+            } else if(answer != sum){
+                coinStart -= 13;
+                System.out.println("Incorrect!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+                } // close else
+            }
+        } // close doAddition
+    
+    public static void doSubtraction() {
+        Random rdm = new Random();
+        int startCounter = 0;
+        int finCounter = 25;
+
+        
+        while(startCounter <= finCounter){
+            int numberone = rdm.nextInt(max);
+            int numbertwo = rdm.nextInt(max);
+            int diff = numberone - numbertwo;
+            System.out.println(numberone + " - " + numbertwo);
+            int answer = grabInput();
+            if(answer == diff) {
+                coinStart += 13;
+                System.out.println("Correct!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+            } else if(answer != diff){
+                coinStart -= 13;
+                System.out.println("Incorrect!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+                } // close else
+            }
+        } // close doSubtraction
+    
+    public static void doMultiplication() {
+        Random rdm = new Random();
+        int startCounter = 0;
+        int finCounter = 25;
+
+        
+        while(startCounter <= finCounter){
+            int numberone = rdm.nextInt(maxMult);
+            int numbertwo = rdm.nextInt(maxMult);
+            int prod = numberone * numbertwo;
+            System.out.println(numberone + " * " + numbertwo);
+            int answer = grabInput();
+            if(answer == prod) {
+                coinStart += 13;
+                System.out.println("Correct!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+            } else if(answer != prod){
+                coinStart -= 13;
+                System.out.println("Incorrect!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+                } // close else
+            }
+        } // close doMultiplication
+    
+    public static void doDivision() {
+        Random rdm = new Random();
+        int startCounter = 0;
+        int finCounter = 25;
+
+        
+        while(startCounter <= finCounter){
+            int numberone = rdm.nextInt(max);
+            int numbertwo = rdm.nextInt(max);
+            double div = (double) numberone / numbertwo;
+            System.out.println(numberone + " / " + numbertwo);
+            System.out.println(div);
+            double answer = grabDivInput();
+            if(answer == div) {
+                coinStart += 13;
+                System.out.println("Correct!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+            } else if(answer != div){
+                coinStart -= 13;
+                System.out.println("Incorrect!");
+                System.out.println("");
+                System.out.println("Balance: " + coinStart);
+                System.out.println("");
+                startCounter = startCounter + 1;
+                } // close else
+            }
+        } // close doDivision
+    
+    public static double grabDivInput() {
+        Scanner input = new Scanner(System.in);
+        double answer = input.nextDouble();
+        return answer;
+    }
+
+
     public static int grabInput() {
         Scanner input = new Scanner(System.in);
         int answer = input.nextInt();
